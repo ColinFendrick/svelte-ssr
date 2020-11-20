@@ -1,0 +1,33 @@
+{
+  "name": "svelte-ssr",
+  "version": "0.1.0",
+  "description": "server-side rendering with svelte",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf public/build",
+    "copy-app": "cp src/App.svelte public/build",
+    "roll-ssr": "rollup -c rollup.ssr-config.js",
+    "build:ssr": "run-s build roll-ssr copy-app",
+    "dev": "rollup -c -w",
+    "serve": "node src/server",
+    "start": "sirv public"
+  },
+  "author": "Colin Fendrick",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "eslint": "^7.13.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.20.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-svelte": "^6.1.1",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sirv-cli": "^0.4.4"
+  }
+}
